@@ -2,6 +2,7 @@
   "expo": {
     "name": "qr-scanner",
     "slug": "qr-scanner",
+    "scheme": "qr-scanner",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,22 +10,42 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0077E6"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera",
+        "NSMicrophoneUsageDescription": "Allow $(PRODUCT_NAME) to access your microphone"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA"
+      ],
+      "package": "com.kfekairi.qrscanner"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-barcode-scanner"
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "0fcb8be9-c768-4163-b720-a2403f50fff7"
+      }
     }
   }
 }
